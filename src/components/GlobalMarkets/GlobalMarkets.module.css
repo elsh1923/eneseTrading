@@ -33,6 +33,13 @@
   align-items: center;
 }
 
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
 .title {
   font-size: 3.2rem;
   margin-bottom: var(--spacing-md);
