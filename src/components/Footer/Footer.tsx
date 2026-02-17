@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
         
         <div className={styles.bottom}>
-          <p>&copy; {new Date().getFullYear()} Enesie Trading PLC. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Enese Trading PLC. All rights reserved.</p>
         </div>
       </div>
     </footer>

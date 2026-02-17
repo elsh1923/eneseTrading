@@ -16,7 +16,7 @@ export default function Navbar() {
           <Link href="/">
             <Image 
               src="/logo-new.png" 
-              alt="Enesie Trading Logo" 
+              alt="Enese Trading Logo" 
               width={350} 
               height={100} 
               className={styles.logoImage}

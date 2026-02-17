@@ -5,9 +5,8 @@ export default function ContactPage() {
   return (
     <main>
       <PageHero 
-        title="Get In Touch" 
-        subtitle="Connect with our Global Trade Experts"
-        bgImage="/hero/v1.mp4"
+        title="Contact Us" 
+        subtitle="Let's Start a Conversation"
       />
       <div style={{ padding: 'var(--spacing-xl) 0' }}>
         <ContactForm />

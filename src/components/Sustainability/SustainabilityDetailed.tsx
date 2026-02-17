@@ -29,7 +29,7 @@ export default function SustainabilityDetailed() {
     <div className={styles.detailedWrapper}>
       <section className={styles.pillarsSection}>
         <div className={styles.container}>
-          <h2 className={`${styles.sectionTitle} reveal-on-scroll`}>The <span className={styles.highlight}>Enesie</span> Green Commitment</h2>
+          <h2 className={`${styles.sectionTitle} reveal-on-scroll`}>The <span className={styles.highlight}>Enese</span> Green Commitment</h2>
           <div className={AboutStyles.line} style={{ margin: 'var(--spacing-md) auto var(--spacing-xl)' }}></div>
           
           <div className={styles.detailedGrid}>

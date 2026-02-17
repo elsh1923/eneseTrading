@@ -6,8 +6,7 @@ export default function MarketsPage() {
     <main>
       <PageHero 
         title="Global Markets" 
-        subtitle="Connecting Ethiopia to the World"
-        bgImage="/hero/v1.mp4"
+        subtitle="Connecting Continents"
       />
       <GlobalMarketsDetailed />
     </main>

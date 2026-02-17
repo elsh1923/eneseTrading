@@ -6,8 +6,7 @@ export default function ServicesPage() {
     <main>
       <PageHero 
         title="Our Services" 
-        subtitle="Global Solutions for Import & Export"
-        bgImage="/hero/v1.mp4" 
+        subtitle="Excellence in Import & Export"
       />
       <ServicesDetailed />
     </main>

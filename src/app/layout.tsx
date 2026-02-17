@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Enesie Trading PLC - Import & Export",
+  title: "Enese Trading PLC - Import & Export",
   description:
     "Connecting Ethiopia to the World through premium import and export services.",
 };

@@ -6,8 +6,7 @@ export default function AboutPage() {
     <main>
       <PageHero 
         title="About Us" 
-        subtitle="Our Journey of Excellence"
-        bgImage="/hero/v1.mp4" 
+        subtitle="Building Bridges in Global Trade"
       />
       <AboutDetailed />
     </main>

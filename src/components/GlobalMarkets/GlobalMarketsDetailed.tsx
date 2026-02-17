@@ -54,7 +54,7 @@ export default function GlobalMarketsDetailed() {
           <div className={styles.routesGrid}>
             <div className={`${styles.routesText} reveal-on-scroll`}>
               <h2>Trade Without <span className={styles.highlight}>Borders</span></h2>
-              <p>Our logistical framework is designed to handle the complexities of international trade. From the highlands of Ethiopia to the industrial hubs of Asia, Enesie Trading ensures a seamless flow of goods.</p>
+              <p>Our logistical framework is designed to handle the complexities of international trade. From the highlands of Ethiopia to the industrial hubs of Asia, Enese Trading ensures a seamless flow of goods.</p>
               <div className={AboutStyles.line}></div>
               <ul>
                 <li>Integrated Supply Chain Management</li>

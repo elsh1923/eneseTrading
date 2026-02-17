@@ -33,7 +33,7 @@ export default function AboutDetailed() {
             <div className={`${styles.historyText} reveal-on-scroll`}>
               <h2 className={styles.sectionTitle}>Our <span className={styles.highlight}>Legacy</span></h2>
               <div className={styles.line}></div>
-              <p>Founded with a vision to revolutionize Ethiopian trade, Enesie Trading PLC has grown from a local operation into a global powerhouse in the import and export sector.</p>
+              <p>Founded with a vision to revolutionize Ethiopian trade, Enese Trading PLC has grown from a local operation into a global powerhouse in the import and export sector.</p>
               <p>Over the years, we have built a reputation for reliability, excellence, and a deep commitment to the quality of Ethiopian pulses and oilseeds. Simultaneously, we have become a critical partner for local industries by importing high-grade raw materials.</p>
               
               <div className={styles.timelineContainer}>
@@ -97,7 +97,7 @@ export default function AboutDetailed() {
               <blockquote>
                 Our goal is not just to trade, but to build lasting bridges between nations, fueled by the excellence of Ethiopian products and the ambition of global industry.
               </blockquote>
-              <cite>— Founder & CEO, Enesie Trading PLC</cite>
+              <cite>— Founder & CEO, Enese Trading PLC</cite>
             </div>
           </div>
         </div>

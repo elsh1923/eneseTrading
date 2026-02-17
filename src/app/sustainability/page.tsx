@@ -6,8 +6,7 @@ export default function SustainabilityPage() {
     <main>
       <PageHero 
         title="Sustainability" 
-        subtitle="Trading for a Better Tomorrow"
-        bgImage="/hero/v1.mp4"
+        subtitle="Ethical Trade for a Better Future"
       />
       <SustainabilityDetailed />
     </main>

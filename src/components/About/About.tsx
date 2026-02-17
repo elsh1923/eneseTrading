@@ -12,7 +12,7 @@ export default function About() {
     <section className={styles.about} id="about">
       <div className={styles.container}>
         <div className={`${styles.header} reveal-on-scroll`}>
-          <h2 className={styles.title}>About <span className={styles.highlight}>Enesie Trading</span></h2>
+          <h2 className={styles.title}>About <span className={styles.highlight}>Enese Trading</span></h2>
           <p className={styles.subtitle}>Empowering Global Trade with Ethical Standards</p>
         </div>
 

@@ -25,30 +25,30 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className={styles.hero} id="hero" ref={heroRef}>
+    <section className={styles.hero} id="hero" ref={heroRef} suppressHydrationWarning>
       <div className={styles.overlay}></div>
       
-      <video 
-        className={`${styles.video} ${styles.videoActive}`}
-        src="/hero/213z.mp4"
-        autoPlay 
-        muted 
-        playsInline 
-        /* Removed loop as per user request */
+      <video
+        className={styles.video}
+        autoPlay
+        muted
+        playsInline
+        loop
+        src="https://res.cloudinary.com/dcx5cyafz/video/upload/v1771318398/213Z_01062018-12_xtbgye.mp4"
       />
       
       <div className={styles.content}>
         <div className="reveal-up">
           <Image 
             src="/logo-new.png" 
-            alt="Enesie Logo" 
+            alt="Enese Logo" 
             width={350} 
             height={140} 
             className={styles.heroLogo}
           />
         </div>
         <h1 className={`${styles.title} reveal-up`}>
-          Enesie <span className={styles.highlight}>Trading</span> PLC
+          Enese <span className={styles.highlight}>Trading</span> PLC
         </h1>
         <p className={`${styles.subtitle} reveal-up`} style={{ transitionDelay: '0.2s' }}>
           Premium Import & Export Services. Trusted Quality. Global Reach.
