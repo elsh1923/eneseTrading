@@ -34,8 +34,8 @@ export default function Footer() {
           <div className={styles.contact}>
             <h4 className={styles.heading}>Contact Us</h4>
             <p><strong>Address:</strong> Addis Ababa, Ethiopia</p>
-            <p><strong>Phone:</strong> <a href="tel:+251911234567">+251 911 234 567</a></p>
-            <p><strong>Email:</strong> <a href="mailto:info@enesietrading.com">info@enesietrading.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+251911282716">+251 91 128 2716</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@enesetrading.com">info@enesetrading.com</a></p>
           </div>
         </div>
         

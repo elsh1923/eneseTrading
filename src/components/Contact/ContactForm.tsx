@@ -31,14 +31,14 @@ export default function ContactForm() {
                 <span className={styles.icon}>📞</span>
                 <div>
                   <h4 className={styles.detailTitle}>Phone</h4>
-                  <p>+251 911 26 83 98</p>
+                  <p>+251 91 128 2716</p>
                 </div>
               </div>
               <div className={styles.detailItem}>
                 <span className={styles.icon}>✉️</span>
                 <div>
                   <h4 className={styles.detailTitle}>Email</h4>
-                  <p>info@enesietrading.com</p>
+                  <p>info@enesetrading.com</p>
                 </div>
               </div>
             </div>
