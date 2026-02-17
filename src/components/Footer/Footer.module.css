@@ -1,0 +1,136 @@
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: var(--spacing-xl) 0 var(--spacing-md);
+  margin-top: auto;
+}
+
+.partners {
+  max-width: 1200px;
+  margin: 0 auto var(--spacing-xl);
+  padding: 0 var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.partnerGrid {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  opacity: 0.6;
+  font-weight: 700;
+  letter-spacing: 2px;
+  flex-wrap: wrap;
+}
+
+.partnerGrid span {
+  font-size: 0.8rem;
+  padding: 5px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.brand {
+  max-width: 350px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 1px;
+}
+
+.tagline {
+  opacity: 0.7;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.heading {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+  color: white;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+.links ul {
+  list-style: none;
+}
+
+.links li {
+  margin-bottom: 0.8rem;
+}
+
+.links a {
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.links a:hover {
+  opacity: 1;
+  color: var(--color-accent);
+  transform: translateX(5px);
+}
+
+.contact p {
+  margin-bottom: 0.8rem;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact strong {
+  color: white;
+  opacity: 1;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.contact a:hover {
+  color: var(--color-accent);
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: var(--spacing-md);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .brand {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,141 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(5, 16, 10, 0.85); /* Midnight Emerald Tint */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.15); /* Elegant Gold Line */
+  padding: 5px 0; /* Minimized vertical padding */
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  height: 65px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logoImage:hover {
+  transform: scale(1.05);
+}
+
+.navLinks {
+  display: flex;
+  gap: var(--spacing-md);
+  list-style: none;
+}
+
+.navLinks li a {
+  font-family: var(--font-main);
+  color: var(--color-text-light);
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.navLinks li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.navLinks li a:hover {
+  color: var(--color-accent);
+}
+
+.navLinks li a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 10px;
+}
+
+.bar {
+  width: 25px;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: all 0.3s ease;
+}
+
+.barOpen:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.barOpen:nth-child(2) {
+  opacity: 0;
+}
+
+.barOpen:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navLinks {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba(5, 16, 10, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+  }
+
+  .navLinksActive {
+    right: 0;
+  }
+
+  .navLinks li {
+    margin: 1.5rem 0;
+  }
+
+  .navLinks li a {
+    font-size: 1.25rem;
+  }
+
+  .logoImage {
+    height: 50px;
+  }
+}
