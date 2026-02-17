@@ -347,34 +347,48 @@
   100% { transform: scale(2.5); opacity: 0; }
 }
 
-@media (max-width: 768px) {
-  .sectionTitle {
-    font-size: 2rem;
-  }
-  .regionsGrid {
+@media (max-width: 900px) {
+  .content {
     grid-template-columns: 1fr;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
   }
-  .routesGrid {
-    grid-template-columns: 1fr;
+  
+  .title {
+    font-size: 2.5rem;
     text-align: center;
   }
-  .routesText h2 {
-    font-size: 2.2rem;
+  
+  .description {
+    text-align: center;
+    font-size: 1rem;
   }
-  .routesText li {
-    justify-content: center;
-  }
-  .detailedStatBox {
-    padding: var(--spacing-md);
-  }
-  .statValue {
-    font-size: 1.8rem;
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
   }
 }
 
-@media (max-width: 480px) {
-  .sectionTitle {
-    font-size: 1.8rem;
+@media (max-width: 600px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .statBox {
+    padding: var(--spacing-lg);
+    align-items: center;
+    text-align: center;
+  }
+  
+  .statValue {
+    font-size: 2.5rem;
+  }
+  
+  .mapPlaceholder {
+    padding: var(--spacing-xl);
+  }
+  
+  .globePulse {
+    font-size: 4rem;
   }
 }
