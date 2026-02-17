@@ -445,6 +445,10 @@
 }
 
 @media (max-width: 768px) {
+  .about::before {
+    display: none;
+  }
+  
   .historyGrid {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
@@ -470,6 +474,12 @@
   .ceoQuote blockquote {
     font-size: 1.4rem;
   }
+  .card h3 {
+    font-size: 1.6rem;
+  }
+  .card h3::before {
+    font-size: 1.8rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -478,5 +488,13 @@
   }
   .sectionTitle {
     font-size: 1.8rem;
+  }
+  .card {
+    padding: var(--spacing-lg);
+  }
+  .card h3 {
+    font-size: 1.4rem;
+    flex-direction: column;
+    text-align: center;
   }
 }
