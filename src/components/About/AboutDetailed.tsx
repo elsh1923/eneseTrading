@@ -27,6 +27,23 @@ export default function AboutDetailed() {
 
   return (
     <div className={styles.detailedContainer}>
+      <section className={`${styles.missionVisionSection} reveal-on-scroll`}>
+        <div className={styles.container}>
+          <div className={styles.missionVisionGrid}>
+            <div className={styles.mvCard}>
+              <div className={styles.mvIcon}>🎯</div>
+              <h3>Our Mission</h3>
+              <p>To provide premium Ethiopian agricultural products to the global market while importing essential high-quality industrial inputs, creating a bridge of excellence between Ethiopia and the world.</p>
+            </div>
+            <div className={styles.mvCard}>
+              <div className={styles.mvIcon}>🌟</div>
+              <h3>Our Vision</h3>
+              <p>To be the most trusted and efficient trading partner in East Africa, recognized for our commitment to quality, sustainability, and socio-economic impact.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className={styles.historySection}>
         <div className={styles.container}>
           <div className={styles.historyGrid}>
@@ -57,7 +74,7 @@ export default function AboutDetailed() {
         </div>
       </section>
 
-      <section className={styles.statsBar}>
+      <section className={`${styles.statsBar} reveal-on-scroll`}>
         <div className={styles.container}>
           <div className={styles.statsWrapper}>
             {companyStats.map((stat, i) => (
@@ -74,11 +91,11 @@ export default function AboutDetailed() {
         <div className={styles.container}>
           <h2 className={`${styles.centerTitle} reveal-on-scroll`}>Our Core <span className={styles.highlight}>Values</span></h2>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div className={styles.line} style={{ margin: '0 0 var(--spacing-lg) 0' }}></div>
+            <div className={`${styles.line} reveal-on-scroll`} style={{ margin: '0 0 var(--spacing-lg) 0' }}></div>
           </div>
           <div className={styles.detailedValuesGrid}>
             {values.map((v, i) => (
-              <div key={i} className={`${styles.valueCard} reveal-on-scroll`} style={{ transitionDelay: `${0.1 * i}s` }}>
+              <div key={i} className={`${styles.valueCard} reveal-on-scroll`} style={{ transitionDelay: `${0.05 * i}s` }}>
                 <div className={styles.valueIcon}>✓</div>
                 <h4>{v.title}</h4>
                 <p>{v.desc}</p>
@@ -88,16 +105,19 @@ export default function AboutDetailed() {
         </div>
       </section>
 
-      <section className={styles.ceoSection}>
+      <section className={`${styles.ceoSection} reveal-on-scroll`}>
         <div className={styles.container}>
           <div className={styles.ceoGrid}>
             <div className={`${styles.ceoQuote} reveal-on-scroll`}>
-              <div className={styles.balanceLine} style={{ height: '2px', width: '60px', background: 'var(--color-accent)', margin: '0 auto 20px', opacity: 0.5 }}></div>
+              <div className={styles.balanceLine}></div>
               <div className={styles.quoteIcon}>"</div>
               <blockquote>
                 Our goal is not just to trade, but to build lasting bridges between nations, fueled by the excellence of Ethiopian products and the ambition of global industry.
               </blockquote>
-              <cite>— Founder & CEO, Enese Trading PLC</cite>
+              <div className={styles.ceoInfo}>
+                <div className={styles.ceoName}>Memhr Sisay</div>
+                <div className={styles.ceoTitle}>Founder & CEO, Enese Trading PLC</div>
+              </div>
             </div>
           </div>
         </div>
