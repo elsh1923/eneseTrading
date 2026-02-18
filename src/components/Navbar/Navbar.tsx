@@ -29,23 +29,24 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <button className={styles.hamburger} onClick={toggleMenu} aria-label="Toggle Menu">
-          <div className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></div>
-          <div className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></div>
-          <div className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></div>
-        </button>
-
         <ul className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksActive : ''}`}>
           <li><Link href="/" onClick={() => setIsMenuOpen(false)}>{t.home}</Link></li>
           <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>{t.about}</Link></li>
           <li><Link href="/services" onClick={() => setIsMenuOpen(false)}>{t.services}</Link></li>
           <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>{t.contact}</Link></li>
-          <li>
-            <button onClick={toggleLanguage} className={styles.langBtn}>
-              {language === 'en' ? '🇺🇸 EN' : '🇪🇹 AM'}
-            </button>
-          </li>
         </ul>
+
+        <div className={styles.navActions}>
+          <button onClick={toggleLanguage} className={styles.langBtn}>
+            {language === 'en' ? '🇺🇸 EN' : '🇪🇹 AM'}
+          </button>
+
+          <button className={styles.hamburger} onClick={toggleMenu} aria-label="Toggle Menu">
+            <div className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></div>
+            <div className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></div>
+            <div className={`${styles.bar} ${isMenuOpen ? styles.barOpen : ''}`}></div>
+          </button>
+        </div>
       </div>
     </nav>
   );

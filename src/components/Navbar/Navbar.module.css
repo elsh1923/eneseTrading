@@ -146,6 +146,12 @@
     z-index: 1000;
   }
 
+  .navActions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
   .navLinksActive {
     right: 0;
   }
