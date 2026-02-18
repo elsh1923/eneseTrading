@@ -1,10 +1,15 @@
-"use client";
+'use client';
 
 import { useEffect } from "react";
 import PageHero from '@/components/PageHero/PageHero';
 import ContactForm from '@/components/Contact/ContactForm';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/utils/translations';
 
 export default function ContactPage() {
+  const { language } = useLanguage();
+  const t = translations[language].contact;
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -28,8 +33,8 @@ export default function ContactPage() {
   return (
     <main>
       <PageHero 
-        title="Contact Us" 
-        subtitle="Let's Start a Conversation"
+        title={t.title} 
+        subtitle={t.subtitle}
       />
       <div style={{ padding: 'var(--spacing-xl) 0' }}>
         <ContactForm />

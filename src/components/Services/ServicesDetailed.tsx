@@ -1,5 +1,8 @@
+'use client';
 import styles from './Services.module.css';
 import Link from 'next/link';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/utils/translations';
 
 const exportItems = [
   { 
@@ -42,21 +45,24 @@ const importItems = [
   },
 ];
 
-const processSteps = [
-  { title: "Sourcing", desc: "Selecting the finest local and international products." },
-  { title: "Quality Check", desc: "Rigorous testing to meet global standards." },
-  { title: "Logistics", desc: "Efficient transportation via our trusted network." },
-  { title: "Delivery", desc: "Timely arrival at the final destination." }
-];
-
 export default function ServicesDetailed() {
+  const { language } = useLanguage();
+  const t = translations[language].services;
+
+  const processSteps = [
+    { title: t.process.sourcing.title, desc: t.process.sourcing.desc },
+    { title: t.process.quality.title, desc: t.process.quality.desc },
+    { title: t.process.logistics.title, desc: t.process.logistics.desc },
+    { title: t.process.delivery.title, desc: t.process.delivery.desc }
+  ];
+
   return (
     <div className={styles.detailedServices}>
       <section className={styles.processSection}>
         <div className={styles.container}>
           <div className="reveal-on-scroll">
-            <h2 className={styles.sectionHeading}>Our <span className={styles.highlight}>Workflow</span></h2>
-            <p className={styles.sectionSubheading}>How we ensure excellence from source to destination.</p>
+            <h2 className={styles.sectionHeading}>{t.workflowTitle}</h2>
+            <p className={styles.sectionSubheading}>{t.workflowSubtitle}</p>
           </div>
           <div className={styles.stepGrid}>
             {processSteps.map((step, i) => (
@@ -72,10 +78,10 @@ export default function ServicesDetailed() {
 
       <section className={styles.services}>
         <div className={styles.container}>
-          <h2 className={`${styles.sectionHeading} reveal-on-scroll`} style={{ textAlign: 'center', marginBottom: 'var(--spacing-xl)' }}>Our <span className={styles.highlight}>Capabilities</span></h2>
+          <h2 className={`${styles.sectionHeading} reveal-on-scroll`} style={{ textAlign: 'center', marginBottom: 'var(--spacing-xl)' }}>{t.capabilities}</h2>
           <div className={styles.mainGrid}>
             <div className={`${styles.column} reveal-on-scroll`}>
-              <h3 className={styles.columnTitle} style={{ color: 'var(--color-green)' }}>Export Portfolio</h3>
+              <h3 className={styles.columnTitle} style={{ color: 'var(--color-green)' }}>{t.exportTitle}</h3>
               <div className={styles.cardGrid}>
                 {exportItems.map((service, index) => (
                   <div 
@@ -101,7 +107,7 @@ export default function ServicesDetailed() {
             </div>
 
             <div className={`${styles.column} reveal-on-scroll`} style={{ transitionDelay: '0.2s' }}>
-              <h3 className={styles.columnTitle} style={{ color: 'var(--color-accent)' }}>Import Solutions</h3>
+              <h3 className={styles.columnTitle} style={{ color: 'var(--color-accent)' }}>{t.importTitle}</h3>
               <div className={styles.cardGrid}>
                 {importItems.map((service, index) => (
                   <div 
@@ -132,11 +138,11 @@ export default function ServicesDetailed() {
       <section className={`${styles.servicesCta} reveal-on-scroll`}>
         <div className={styles.container}>
           <div className={styles.ctaContent}>
-            <h2>Ready to Start?</h2>
-            <p>Connect with our trade experts today to explore how we can support your business goals.</p>
+            <h2>{t.ctaTitle}</h2>
+            <p>{t.ctaDesc}</p>
             <div style={{ marginTop: 'var(--spacing-lg)' }}>
               <Link href="/contact" className={styles.ctaBtn}>
-                Request a Quote
+                {t.ctaButton}
               </Link>
             </div>
           </div>

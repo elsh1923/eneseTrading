@@ -1,10 +1,15 @@
-"use client";
+'use client';
 
 import { useEffect } from "react";
 import PageHero from '@/components/PageHero/PageHero';
 import ServicesDetailed from '@/components/Services/ServicesDetailed';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/utils/translations';
 
 export default function ServicesPage() {
+  const { language } = useLanguage();
+  const t = translations[language].services;
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -28,8 +33,8 @@ export default function ServicesPage() {
   return (
     <main>
       <PageHero 
-        title="Our Services" 
-        subtitle="Excellence in Import & Export"
+        title={t.title} 
+        subtitle={t.subtitle}
       />
       <ServicesDetailed />
     </main>

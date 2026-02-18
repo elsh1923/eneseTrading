@@ -1,18 +1,31 @@
+'use client';
 import styles from './Sustainability.module.css';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/utils/translations';
 
 export default function Sustainability() {
+  const { language } = useLanguage();
+  const t = translations[language].sustainability;
+
   const initiatives = [
-    { title: "Responsible Sourcing", desc: "Partnering with farmers who prioritize eco-friendly cultivation." },
-    { title: "Fair Trade", desc: "Ensuring ethical compensation for local agricultural producers." },
-    { title: "Waste Reduction", desc: "Optimizing logistics to minimize our environmental footprint." }
+    { title: t.initiatives.sourcing, desc: "Partnering with farmers who prioritize eco-friendly cultivation." }, // Simplified, keeping eng desc for now or using hardcoded translations
+    { title: t.initiatives.fairTrade, desc: "Ensuring ethical compensation for local agricultural producers." },
+    { title: t.initiatives.waste, desc: "Optimizing logistics to minimize our environmental footprint." }
   ];
+
+  // Manual translation for descriptions for now as I didn't add them to translations.ts in detail
+  if (language === 'am') {
+    initiatives[0].desc = "ከአካባቢ ጥበቃ ጋር የሚስማማ እርሻን ከሚከተሉ አርሶ አደሮች ጋር መሥራት።";
+    initiatives[1].desc = "ለአገር ውስጥ ገበሬዎች ፍትሃዊ ክፍያ ማረጋገጥ።";
+    initiatives[2].desc = "የአካባቢ ተጽእኖን ለመቀነስ የሎጂስቲክስ ሂደቶችን ማሻሻል።";
+  }
 
   return (
     <section className={styles.sustainability} id="sustainability">
       <div className={styles.container}>
         <div className={`${styles.header} reveal-on-scroll`}>
-          <h2 className={styles.title}>Our Commitment to <span className={styles.highlight}>Sustainability</span></h2>
-          <p className={styles.subtitle}>Trading for a Greener and Fairer Future</p>
+          <h2 className={styles.title}>{t.title} <span className={styles.highlight}>{t.highlight}</span></h2>
+          <p className={styles.subtitle}>{t.subtitle}</p>
         </div>
 
         <div className={styles.grid}>
@@ -28,7 +41,7 @@ export default function Sustainability() {
         </div>
         
         <div className={`${styles.ctaBox} reveal-on-scroll`}>
-          <p>We believe that global commerce should empower communities and protect our planet for future generations.</p>
+          <p>{t.cta}</p>
         </div>
       </div>
     </section>

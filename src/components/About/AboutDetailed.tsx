@@ -1,28 +1,33 @@
+'use client';
 import styles from './About.module.css';
-import Image from 'next/image';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/utils/translations';
 
 export default function AboutDetailed() {
+  const { language } = useLanguage();
+  const t = translations[language].about;
+
   const values = [
-    { title: "Quality Excellence", desc: "We ensure every product meets international standards through rigorous quality control." },
-    { title: "Trust & Integrity", desc: "Building long-term relationships through transparency and ethical business practices." },
-    { title: "Global Reach", desc: "Connecting local excellence with worldwide markets through our extensive logistics network." },
-    { title: "Sustainability", desc: "Supporting responsible sourcing and fair trade to empower local communities." },
-    { title: "Innovation", desc: "Continuously improving our processes to provide the best trading experience." },
-    { title: "Customer Focus", desc: "Tailoring our services to meet the unique needs of our global partners." }
+    { title: t.values.quality, desc: t.valuesDesc.quality },
+    { title: t.values.trust, desc: t.valuesDesc.trust },
+    { title: t.values.global, desc: t.valuesDesc.global },
+    { title: t.values.sustainability, desc: t.valuesDesc.sustainability },
+    { title: t.values.innovation, desc: t.valuesDesc.innovation },
+    { title: t.values.customer, desc: t.valuesDesc.customer }
   ];
 
   const timeline = [
-    { year: "2013", title: "The Beginning", desc: "Founded in Addis Ababa with a focus on local agricultural supply." },
-    { year: "2016", title: "Global Expansion", desc: "Established first international trade routes to the Middle East and Europe." },
-    { year: "2019", title: "Market Leadership", desc: "Recognized as a leading exporter of premium Ethiopian Oilseeds and Pulses." },
-    { year: "2024", title: "Future Vision", desc: "Implementing state-of-the-art digital logistics for seamless global trade." }
+    { year: t.timeline.t1.year, title: t.timeline.t1.title, desc: t.timeline.t1.desc },
+    { year: t.timeline.t2.year, title: t.timeline.t2.title, desc: t.timeline.t2.desc },
+    { year: t.timeline.t3.year, title: t.timeline.t3.title, desc: t.timeline.t3.desc },
+    { year: t.timeline.t4.year, title: t.timeline.t4.title, desc: t.timeline.t4.desc }
   ];
 
   const companyStats = [
-    { value: "11+", label: "Years Excellence" },
-    { value: "500k+", label: "Tons Handled" },
-    { value: "40+", label: "Global Partners" },
-    { value: "100%", label: "Quality Assurance" }
+    { value: "11+", label: t.stats.years },
+    { value: "500k+", label: t.stats.tons },
+    { value: "40+", label: t.stats.partners },
+    { value: "100%", label: t.stats.quality }
   ];
 
   return (
@@ -32,13 +37,13 @@ export default function AboutDetailed() {
           <div className={styles.missionVisionGrid}>
             <div className={styles.mvCard}>
               <div className={styles.mvIcon}>🎯</div>
-              <h3>Our Mission</h3>
-              <p>To provide premium Ethiopian agricultural products to the global market while importing essential high-quality industrial inputs, creating a bridge of excellence between Ethiopia and the world.</p>
+              <h3>{t.missionTitle}</h3>
+              <p>{t.missionDesc}</p>
             </div>
             <div className={styles.mvCard}>
               <div className={styles.mvIcon}>🌟</div>
-              <h3>Our Vision</h3>
-              <p>To be the most trusted and efficient trading partner in East Africa, recognized for our commitment to quality, sustainability, and socio-economic impact.</p>
+              <h3>{t.visionTitle}</h3>
+              <p>{t.visionDesc}</p>
             </div>
           </div>
         </div>
@@ -48,10 +53,10 @@ export default function AboutDetailed() {
         <div className={styles.container}>
           <div className={styles.historyGrid}>
             <div className={`${styles.historyText} reveal-on-scroll`}>
-              <h2 className={styles.sectionTitle}>Our <span className={styles.highlight}>Legacy</span></h2>
+              <h2 className={styles.sectionTitle}>{t.legacy.title} <span className={styles.highlight}>{t.legacy.highlight}</span></h2>
               <div className={styles.line}></div>
-              <p>Founded with a vision to revolutionize Ethiopian trade, Enese Trading PLC has grown from a local operation into a global powerhouse in the import and export sector.</p>
-              <p>Over the years, we have built a reputation for reliability, excellence, and a deep commitment to the quality of Ethiopian pulses and oilseeds. Simultaneously, we have become a critical partner for local industries by importing high-grade raw materials.</p>
+              <p>{t.legacy.text1}</p>
+              <p>{t.legacy.text2}</p>
               
               <div className={styles.timelineContainer}>
                 {timeline.map((item, i) => (
@@ -112,11 +117,11 @@ export default function AboutDetailed() {
               <div className={styles.balanceLine}></div>
               <div className={styles.quoteIcon}>"</div>
               <blockquote>
-                Our goal is not just to trade, but to build lasting bridges between nations, fueled by the excellence of Ethiopian products and the ambition of global industry.
+                {t.ceo.quote}
               </blockquote>
               <div className={styles.ceoInfo}>
-                <div className={styles.ceoName}>Memhr Sisay</div>
-                <div className={styles.ceoTitle}>Founder & CEO, Enese Trading PLC</div>
+                <div className={styles.ceoName}>{t.ceo.name}</div>
+                <div className={styles.ceoTitle}>{t.ceo.title}</div>
               </div>
             </div>
           </div>

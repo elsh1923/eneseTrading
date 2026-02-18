@@ -1,10 +1,15 @@
-"use client";
+'use client';
 
 import { useEffect } from "react";
 import PageHero from '@/components/PageHero/PageHero';
 import AboutDetailed from '@/components/About/AboutDetailed';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/utils/translations';
 
 export default function AboutPage() {
+  const { language } = useLanguage();
+  const t = translations[language].about;
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -28,8 +33,8 @@ export default function AboutPage() {
   return (
     <main>
       <PageHero 
-        title="About Us" 
-        subtitle="Building Bridges in Global Trade"
+        title={t.title} 
+        subtitle={t.subtitle}
       />
       <AboutDetailed />
     </main>

@@ -3,9 +3,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Navbar.module.css';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/utils/translations';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, toggleLanguage } = useLanguage();
+  const t = translations[language].navbar;
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -16,7 +20,7 @@ export default function Navbar() {
           <Link href="/">
             <Image 
               src="/logo-new.png" 
-              alt="Enese Trading Logo" 
+              alt={`${translations[language].companyName} Logo`} 
               width={350} 
               height={100} 
               className={styles.logoImage}
@@ -32,10 +36,15 @@ export default function Navbar() {
         </button>
 
         <ul className={`${styles.navLinks} ${isMenuOpen ? styles.navLinksActive : ''}`}>
-          <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
-          <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link></li>
-          <li><Link href="/services" onClick={() => setIsMenuOpen(false)}>Services</Link></li>
-          <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link></li>
+          <li><Link href="/" onClick={() => setIsMenuOpen(false)}>{t.home}</Link></li>
+          <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>{t.about}</Link></li>
+          <li><Link href="/services" onClick={() => setIsMenuOpen(false)}>{t.services}</Link></li>
+          <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>{t.contact}</Link></li>
+          <li>
+            <button onClick={toggleLanguage} className={styles.langBtn}>
+              {language === 'en' ? '🇺🇸 EN' : '🇪🇹 AM'}
+            </button>
+          </li>
         </ul>
       </div>
     </nav>

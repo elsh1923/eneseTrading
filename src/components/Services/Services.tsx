@@ -1,4 +1,7 @@
+import Link from 'next/link';
 import styles from './Services.module.css';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/utils/translations';
 
 const exportItems = [
   { 
@@ -41,48 +44,49 @@ const importItems = [
   },
 ];
 
+
 export default function Services() {
+  const { language } = useLanguage();
+  const t = translations[language].services;
+
   return (
     <section className={styles.services} id="services">
       <div className={styles.container}>
-        <div className={styles.mainGrid}>
-          {/* Export Column */}
-          <div className={`${styles.column} reveal-on-scroll`}>
-            <h3 className={styles.columnTitle} style={{ color: 'var(--color-green)' }}>Export (ኤክስፖርት)</h3>
-            <div className={styles.cardGrid}>
-              {exportItems.map((service, index) => (
-                <div key={index} className={styles.card} style={{ backgroundImage: `url(${service.image})` }}>
-                  <div className={styles.cardOverlay}></div>
-                  <div className={styles.cardContent}>
-                    <h4 className={styles.serviceName}>{service.name}</h4>
-                    <ul className={styles.itemList}>
-                      {service.items.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+        <div className={`${styles.header} reveal-on-scroll`}>
+          <h2 className={styles.title}>{t.title}</h2>
+          <p className={styles.subtitle}>{t.subtitle}</p>
+        </div>
+
+        <div className={styles.grid}>
+          <div className={`${styles.serviceCard} reveal-on-scroll`}>
+            <div className={styles.imageWrapper}>
+              <div className={`${styles.serviceImage} ${styles.exportImage}`}></div>
+            </div>
+            <div className={styles.content}>
+              <h3>{t.exportTitle}</h3>
+              <p>{language === 'en' ? 'Premium Agricultural Products' : 'ፕሪሚየም የግብርና ምርቶች'}</p>
+              <ul className={styles.list}>
+                <li>{language === 'en' ? 'Coffee (Arabica)' : 'ቡና (አረቢካ)'}</li>
+                <li>{language === 'en' ? 'Oil Seeds (Sesame, Niger)' : 'የቅባት እህሎች (ሰሊጥ፣ ኑግ)'}</li>
+                <li>{language === 'en' ? 'Pulses & Spices' : 'ጥራጥሬዎች እና ቅመማ ቅመሞች'}</li>
+              </ul>
+              <Link href="/services" className={styles.link}>{t.ctaDesc.split(' ')[0]} &rarr;</Link>
             </div>
           </div>
 
-          {/* Import Column */}
-          <div className={`${styles.column} reveal-on-scroll`} style={{ transitionDelay: '0.2s' }}>
-            <h3 className={styles.columnTitle} style={{ color: 'var(--color-accent)' }}>Import (ኢምፖርት)</h3>
-            <div className={styles.cardGrid}>
-              {importItems.map((service, index) => (
-                <div key={index} className={styles.card} style={{ backgroundImage: `url(${service.image})` }}>
-                  <div className={styles.cardOverlay}></div>
-                  <div className={styles.cardContent}>
-                    <h4 className={styles.serviceName}>{service.name}</h4>
-                    <ul className={styles.itemList}>
-                      {service.items.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
+          <div className={`${styles.serviceCard} reveal-on-scroll`} style={{ transitionDelay: '0.2s' }}>
+            <div className={styles.imageWrapper}>
+              <div className={`${styles.serviceImage} ${styles.importImage}`}></div>
+            </div>
+            <div className={styles.content}>
+              <h3>{t.importTitle}</h3>
+              <p>{language === 'en' ? 'Industrial & Construction Inputs' : 'የኢንዱስትሪ እና የግንባታ ግብአቶች'}</p>
+              <ul className={styles.list}>
+                <li>{language === 'en' ? 'Construction Machinery' : 'የግንባታ ማሽነሪዎች'}</li>
+                <li>{language === 'en' ? 'Industrial Chemicals' : 'የኢንዱስትሪ ኬሚካሎች'}</li>
+                <li>{language === 'en' ? 'Automotive Parts' : 'የመኪና መለዋወጫዎች'}</li>
+              </ul>
+              <Link href="/services" className={styles.link}>{t.ctaDesc.split(' ')[0]} &rarr;</Link>
             </div>
           </div>
         </div>

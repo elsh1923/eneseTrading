@@ -1,11 +1,17 @@
+'use client';
 import styles from './GlobalMarkets.module.css';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/utils/translations';
 
 export default function GlobalMarkets() {
+  const { language } = useLanguage();
+  const t = translations[language].markets;
+
   const stats = [
-    { label: "Partner Countries", value: "25+" },
-    { label: "Global Suppliers", value: "100+" },
-    { label: "Metric Tons Exported", value: "10k+" },
-    { label: "Successful Deliveries", value: "99.9%" }
+    { label: t.stats.countries, value: "25+" },
+    { label: t.stats.suppliers, value: "100+" },
+    { label: t.stats.exports, value: "10k+" },
+    { label: t.stats.deliveries, value: "99.9%" }
   ];
 
   return (
@@ -13,9 +19,9 @@ export default function GlobalMarkets() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={`${styles.textContent} reveal-on-scroll`}>
-            <h2 className={styles.title}>Global <span className={styles.highlight}>Markets</span></h2>
+            <h2 className={styles.title}>{t.title} <span className={styles.highlight}>{t.highlight}</span></h2>
             <p className={styles.description}>
-              Headquartered in Addis Ababa, Enese Trading operates an extensive network across Europe, Asia, and the Middle East. We bridge the gap between local production and international demand through a robust logistical framework.
+              {t.description}
             </p>
             <div className={styles.statsGrid}>
               {stats.map((stat, i) => (
@@ -31,7 +37,7 @@ export default function GlobalMarkets() {
             <div className={styles.mapPlaceholder}>
                {/* In a real project, we would use an SVG map or an image here */}
                <div className={styles.globePulse}>🌐</div>
-               <p>Connecting East Africa to the Global Commerce Network</p>
+               <p>{t.mapCaption}</p>
             </div>
           </div>
         </div>
