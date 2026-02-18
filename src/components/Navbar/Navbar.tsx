@@ -35,8 +35,6 @@ export default function Navbar() {
           <li><Link href="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
           <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>About</Link></li>
           <li><Link href="/services" onClick={() => setIsMenuOpen(false)}>Services</Link></li>
-          <li><Link href="/markets" onClick={() => setIsMenuOpen(false)}>Global Markets</Link></li>
-          <li><Link href="/sustainability" onClick={() => setIsMenuOpen(false)}>Sustainability</Link></li>
           <li><Link href="/contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link></li>
         </ul>
       </div>

@@ -21,21 +21,21 @@ export default function ContactForm() {
             
             <div className={styles.contactDetails}>
               <div className={styles.detailItem}>
-                <span className={styles.icon}>📍</span>
+                <div className={styles.icon}>📍</div>
                 <div>
                   <h4 className={styles.detailTitle}>Head Office</h4>
                   <p>Addis Ababa, Ethiopia</p>
                 </div>
               </div>
               <div className={styles.detailItem}>
-                <span className={styles.icon}>📞</span>
+                <div className={styles.icon}>📞</div>
                 <div>
                   <h4 className={styles.detailTitle}>Phone</h4>
                   <p>+251 91 128 2716</p>
                 </div>
               </div>
               <div className={styles.detailItem}>
-                <span className={styles.icon}>✉️</span>
+                <div className={styles.icon}>✉️</div>
                 <div>
                   <h4 className={styles.detailTitle}>Email</h4>
                   <p>info@enesetrading.com</p>
@@ -47,6 +47,7 @@ export default function ContactForm() {
           <div className={`${styles.formWrapper} reveal-on-scroll`} style={{ transitionDelay: '0.2s' }}>
             {isSubmitted ? (
               <div className={styles.successMessage}>
+                <div className={styles.successIcon}>✓</div>
                 <h3>Thank You!</h3>
                 <p>Your inquiry has been sent successfully. Our team will contact you shortly.</p>
                 <button onClick={() => setIsSubmitted(false)} className={styles.submitBtn}>Send Another Message</button>
@@ -63,7 +64,7 @@ export default function ContactForm() {
                 </div>
                 <div className={styles.formGroup}>
                   <label>Interested in</label>
-                  <select required>
+                  <select required className={styles.select}>
                     <option value="">Select Service</option>
                     <option value="export">Export Products</option>
                     <option value="import">Import Products</option>

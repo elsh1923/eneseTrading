@@ -21,11 +21,11 @@
   margin-bottom: var(--spacing-md);
   color: var(--color-text-heading);
   font-weight: 800;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
 }
 
 .highlight {
-  color: var(--color-accent);
+  color: var(--color-secondary);
   position: relative;
 }
 
@@ -36,7 +36,7 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: var(--color-accent);
+  background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
   opacity: 0.6;
 }
 
@@ -46,12 +46,13 @@
   margin-bottom: calc(var(--spacing-xl) * 1.2);
   line-height: 1.8;
   font-weight: 500;
+  max-width: 90%;
 }
 
 .contactDetails {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--spacing-md) * 1.2);
+  gap: calc(var(--spacing-md) * 1.5);
 }
 
 .detailItem {
@@ -61,67 +62,86 @@
 }
 
 .icon {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   background: linear-gradient(135deg, var(--color-surface), #f8f9fa);
   width: 60px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
+  border-radius: 50%;
   color: var(--color-accent);
   box-shadow: 0 4px 15px rgba(0,0,0,0.06);
   transition: all 0.3s ease;
+  border: 1px solid rgba(212, 175, 55, 0.1);
 }
 
 .detailItem:hover .icon {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.1);
   box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+  background: var(--color-secondary);
+  color: white;
+  border-color: var(--color-secondary);
 }
 
 .detailTitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--color-primary);
-  margin-bottom: 4px;
-  font-weight: 700;
+  margin-bottom: 5px;
+  font-weight: 800;
 }
 
 .detailItem p {
   color: var(--color-text);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 .formWrapper {
   background: white;
   padding: calc(var(--spacing-xl) * 1.1);
-  border-radius: 20px;
-  box-shadow: 0 15px 50px rgba(0,0,0,0.1);
-  border: 1px solid rgba(0,0,0,0.06);
-  transition: all 0.3s ease;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.formWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
 }
 
 .formWrapper:hover {
-  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 25px 60px rgba(12, 107, 62, 0.15);
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--spacing-md) * 1.1);
+  gap: var(--spacing-md);
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: 8px;
 }
 
 .formGroup label {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-primary);
-  letter-spacing: 0.2px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .formGroup input, 
@@ -129,11 +149,17 @@
 .formGroup textarea {
   padding: 1rem 1.2rem;
   border: 2px solid #e8eaed;
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   font-family: inherit;
   font-size: 1rem;
   transition: all 0.3s ease;
   background: #fafbfc;
+  color: var(--color-text);
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #a0a0a0;
 }
 
 .formGroup input:focus, 
@@ -142,53 +168,67 @@
   outline: none;
   border-color: var(--color-accent);
   background: white;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
 }
 
 .submitBtn {
-  background: linear-gradient(135deg, var(--color-primary), #0a5f37);
+  background: var(--color-secondary);
   color: white;
   padding: 1.25rem;
   border: none;
-  border-radius: 12px;
+  border-radius: 50px;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1rem;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   margin-top: var(--spacing-sm);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 8px 20px rgba(12, 107, 62, 0.2);
+  letter-spacing: 2px;
+  box-shadow: 0 10px 25px rgba(12, 107, 62, 0.25);
 }
 
 .submitBtn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(12, 107, 62, 0.3);
-  background: linear-gradient(135deg, #0a5f37, var(--color-primary));
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(12, 107, 62, 0.4);
+  background: var(--color-accent);
+  color: var(--color-primary);
 }
 
 .successMessage {
   text-align: center;
-  padding: calc(var(--spacing-xl) * 1.2) calc(var(--spacing-lg) * 1.2);
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-  animation: revealUp 0.5s ease;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.successIcon {
+  font-size: 3rem;
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-md);
+  width: 80px;
+  height: 80px;
+  background: rgba(12, 107, 62, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .successMessage h3 {
-  font-size: 2.2rem;
-  color: var(--color-green);
-  margin-bottom: var(--spacing-md);
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
   font-weight: 800;
 }
 
 .successMessage p {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--color-text);
   margin-bottom: var(--spacing-lg);
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 @media (max-width: 900px) {
@@ -196,22 +236,16 @@
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
   }
+  .formWrapper {
+    padding: var(--spacing-lg);
+  }
 }
 
 @media (max-width: 768px) {
   .title {
     font-size: 2.2rem;
   }
-  .formWrapper {
-    padding: var(--spacing-md);
-  }
-  .successMessage h3 {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.8rem;
+  .subtitle {
+    font-size: 1rem;
   }
 }
