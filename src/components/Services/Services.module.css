@@ -30,29 +30,30 @@
 }
 
 .columnTitle {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: var(--spacing-lg);
   display: inline-block;
   border-bottom: 3px solid currentColor;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-weight: 800;
 }
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
 }
 
 .card {
   position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid rgba(255, 255, 255, 0.08); /* Sophisticated border */
+  box-shadow: var(--shadow-lg);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(212, 175, 55, 0.1);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -61,60 +62,63 @@
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(12, 107, 62, 0.25); /* Emerald Glow */
-  border-color: var(--color-secondary);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(12, 107, 62, 0.25);
+  border-color: var(--color-accent);
 }
 
-.card::after {
-  content: '';
+.cardOverlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(5, 16, 10, 0.95) 0%, rgba(5, 16, 10, 0.2) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(5, 16, 10, 0.95) 0%, rgba(5, 16, 10, 0.4) 50%, transparent 100%);
   z-index: 1;
-  transition: background 0.4s ease;
+  transition: all 0.4s ease;
 }
 
-.card:hover::after {
-  background: linear-gradient(to top, rgba(12, 107, 62, 0.9) 0%, rgba(5, 16, 10, 0.3) 60%, transparent 100%);
+.card:hover .cardOverlay {
+  background: linear-gradient(to top, rgba(12, 107, 62, 0.95) 0%, rgba(12, 107, 62, 0.4) 50%, transparent 100%);
 }
 
 .cardContent {
-  padding: var(--spacing-md);
+  padding: var(--spacing-lg);
   position: relative;
   z-index: 2;
   color: white;
 }
 
 .serviceName {
-  font-size: 1.3rem;
-  margin-bottom: var(--spacing-xs);
+  font-size: 1.6rem;
+  margin-bottom: var(--spacing-sm);
   color: var(--color-accent);
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .itemList {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .itemList li {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2px;
-  display: inline-block;
-  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
 }
 
 .itemList li::before {
-  content: "•";
+  content: "✓";
   color: var(--color-accent);
-  margin-right: 5px;
-  font-weight: 800;
+  margin-right: 6px;
+  font-weight: 900;
+  font-size: 0.8rem;
 }
 
 /* Detailed Page Styles */
@@ -129,125 +133,149 @@
 }
 
 .sectionHeading {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: var(--spacing-sm);
   color: var(--color-primary);
+  letter-spacing: -0.5px;
+}
+
+.highlight {
+  color: var(--color-secondary);
+  position: relative;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
+  opacity: 0.6;
 }
 
 .sectionSubheading {
+  font-size: 1.2rem;
   color: var(--color-text);
   margin-bottom: var(--spacing-xl);
   max-width: 700px;
   margin-inline: auto;
+  font-weight: 500;
 }
 
 .stepGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-lg);
-  position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
 }
 
 .stepCard {
-  padding: var(--spacing-lg);
+  padding: var(--spacing-xl);
   background: white;
-  border-radius: var(--radius-md);
-  border-top: 5px solid var(--color-accent);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease;
+  border-radius: var(--radius-lg);
+  border-bottom: 5px solid transparent;
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
+  border: 1px solid rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
 }
 
 .stepCard:hover {
   transform: translateY(-10px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-lg);
 }
 
 .stepNumber {
-  font-size: 2.5rem;
+  font-size: 4rem;
   font-weight: 900;
   color: var(--color-secondary);
-  opacity: 0.1;
-  margin-bottom: -15px;
+  opacity: 0.08;
+  position: absolute;
+  top: -10px;
+  right: 15px;
 }
 
 .stepCard h4 {
   color: var(--color-primary);
-  margin-bottom: var(--spacing-xs);
-  font-size: 1.2rem;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.4rem;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
 }
 
 .stepCard p {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
 }
 
 .servicesCta {
-  padding: var(--spacing-xl) 0;
-  background: linear-gradient(rgba(12, 107, 62, 0.95), rgba(5, 16, 10, 0.95)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop');
+  padding: calc(var(--spacing-xl) * 1.5) 0;
+  background: linear-gradient(rgba(5, 16, 10, 0.9), rgba(5, 16, 10, 0.9)), url('/cargo.jpg');
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   color: #ffffff;
   text-align: center;
 }
 
-.ctaContent {
-  max-width: 800px;
-  margin: 0 auto;
+.ctaContent h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -1px;
 }
 
-.ctaContent h2 {
-  font-size: 3rem;
-  margin-bottom: var(--spacing-md);
+.ctaContent p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .ctaBtn {
   display: inline-block;
-  padding: 1.2rem 3rem;
+  padding: 1.25rem 3.5rem;
   background: var(--color-accent);
   color: var(--color-primary);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 50px;
   text-transform: uppercase;
-  margin-top: var(--spacing-lg);
-  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ctaBtn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transform: translateY(-5px) scale(1.05);
+  background: var(--color-accent-hover);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
 }
 
 @media (max-width: 768px) {
   .sectionHeading {
-    font-size: 2rem;
-  }
-  .stepGrid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
-  }
-  .stepCard {
-    padding: var(--spacing-md);
+    font-size: 2.2rem;
   }
   .ctaContent h2 {
-    font-size: 2rem;
-  }
-  .ctaBtn {
-    padding: 1rem 2rem;
-    font-size: 0.9rem;
+    font-size: 2.5rem;
   }
   .columnTitle {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
-}
-
-@media (max-width: 480px) {
-  .sectionHeading {
-    font-size: 1.8rem;
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+  .stepCard {
+    padding: var(--spacing-lg);
   }
 }

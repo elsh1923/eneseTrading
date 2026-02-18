@@ -54,8 +54,10 @@ export default function ServicesDetailed() {
     <div className={styles.detailedServices}>
       <section className={styles.processSection}>
         <div className={styles.container}>
-          <h2 className={styles.sectionHeading}>Our <span className={styles.highlight}>Workflow</span></h2>
-          <p className={styles.sectionSubheading}>How we ensure excellence from source to destination.</p>
+          <div className="reveal-on-scroll">
+            <h2 className={styles.sectionHeading}>Our <span className={styles.highlight}>Workflow</span></h2>
+            <p className={styles.sectionSubheading}>How we ensure excellence from source to destination.</p>
+          </div>
           <div className={styles.stepGrid}>
             {processSteps.map((step, i) => (
               <div key={i} className={`${styles.stepCard} reveal-on-scroll`} style={{ transitionDelay: `${i * 0.1}s` }}>
@@ -70,13 +72,20 @@ export default function ServicesDetailed() {
 
       <section className={styles.services}>
         <div className={styles.container}>
-          <h2 className={styles.sectionHeading} style={{ textAlign: 'center', marginBottom: 'var(--spacing-xl)' }}>Our <span className={styles.highlight}>Capabilities</span></h2>
+          <h2 className={`${styles.sectionHeading} reveal-on-scroll`} style={{ textAlign: 'center', marginBottom: 'var(--spacing-xl)' }}>Our <span className={styles.highlight}>Capabilities</span></h2>
           <div className={styles.mainGrid}>
             <div className={`${styles.column} reveal-on-scroll`}>
               <h3 className={styles.columnTitle} style={{ color: 'var(--color-green)' }}>Export Portfolio</h3>
               <div className={styles.cardGrid}>
                 {exportItems.map((service, index) => (
-                  <div key={index} className={styles.card} style={{ backgroundImage: `url(${service.image})` }}>
+                  <div 
+                    key={index} 
+                    className={`${styles.card} reveal-on-scroll`} 
+                    style={{ 
+                      backgroundImage: `url(${service.image})`,
+                      transitionDelay: `${index * 0.1}s`
+                    }}
+                  >
                     <div className={styles.cardOverlay}></div>
                     <div className={styles.cardContent}>
                       <h4 className={styles.serviceName}>{service.name}</h4>
@@ -95,7 +104,14 @@ export default function ServicesDetailed() {
               <h3 className={styles.columnTitle} style={{ color: 'var(--color-accent)' }}>Import Solutions</h3>
               <div className={styles.cardGrid}>
                 {importItems.map((service, index) => (
-                  <div key={index} className={styles.card} style={{ backgroundImage: `url(${service.image})` }}>
+                  <div 
+                    key={index} 
+                    className={`${styles.card} reveal-on-scroll`} 
+                    style={{ 
+                      backgroundImage: `url(${service.image})`,
+                      transitionDelay: `${index * 0.1}s`
+                    }}
+                  >
                     <div className={styles.cardOverlay}></div>
                     <div className={styles.cardContent}>
                       <h4 className={styles.serviceName}>{service.name}</h4>
@@ -113,14 +129,16 @@ export default function ServicesDetailed() {
         </div>
       </section>
 
-      <section className={styles.servicesCta}>
+      <section className={`${styles.servicesCta} reveal-on-scroll`}>
         <div className={styles.container}>
           <div className={styles.ctaContent}>
             <h2>Ready to Start?</h2>
             <p>Connect with our trade experts today to explore how we can support your business goals.</p>
-            <Link href="/contact" className={styles.ctaBtn}>
-              Request a Quote
-            </Link>
+            <div style={{ marginTop: 'var(--spacing-lg)' }}>
+              <Link href="/contact" className={styles.ctaBtn}>
+                Request a Quote
+              </Link>
+            </div>
           </div>
         </div>
       </section>
