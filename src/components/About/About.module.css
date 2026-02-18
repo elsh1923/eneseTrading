@@ -92,6 +92,13 @@
   border-color: var(--color-accent);
 }
 
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
 /* Detailed Page Specific Styles */
 .detailedContainer {
   background-color: var(--color-surface);
@@ -346,35 +353,51 @@
 }
 
 @media (max-width: 1024px) {
-  .detailedValuesGrid {
-    grid-template-columns: 1fr 1fr;
+  .valuesGrid, .detailedValuesGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .missionVisionGrid, .historyGrid {
+  .about {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .grid, .valuesGrid, .missionVisionGrid, .historyGrid, .detailedValuesGrid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
   
+  .card {
+    padding: var(--spacing-lg);
+  }
+
   .statsWrapper {
     grid-template-columns: 1fr 1fr;
   }
   
-  .detailedValuesGrid {
-    grid-template-columns: 1fr;
-  }
-  
   .sectionTitle, .centerTitle {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .ceoQuote blockquote {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .imageOverlay {
     right: 0;
     top: 0;
     transform: none;
+    position: relative;
+    display: inline-block;
+    margin-top: var(--spacing-md);
   }
 }
